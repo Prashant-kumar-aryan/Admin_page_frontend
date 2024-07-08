@@ -11,6 +11,7 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchContacts = async () => {
+      setIsLoading(true); // Set loading state to true before fetching data
       try {
         const { data } = await axios.get(
           "https://contact-page-backend.onrender.com/api/v1/admin/Contacts"
@@ -25,15 +26,15 @@ const Admin = () => {
         );
 
         setContacts(filteredData);
-        setIsLoading(false); // Update loading state once data is fetched
       } catch (error) {
         console.error("Error fetching contacts:", error.message);
-        setIsLoading(false); // Update loading state in case of error
+      } finally {
+        setIsLoading(false); // Update loading state once data (and filtering) is complete
       }
     };
 
     fetchContacts(); // Initial fetch when component mounts or activeFilter changes
-  }, [activeFilter, contacts]);
+  }, [activeFilter]);
 
   const handleFilterChange = (topic) => {
     setActiveFilter(topic);
