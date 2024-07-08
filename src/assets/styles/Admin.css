@@ -143,7 +143,6 @@ button:hover {
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #f5c6cb;
-    /* Border color */
     border-radius: 5px;
 }
 
@@ -160,14 +159,20 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+
+    .FilterButtons button {
+        margin: 0 2px;
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--primary-color);
+        color: var(--background-color);
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
     .card {
         width: 90%;
     }
-
-    /* .card .row {
-        flex-direction: column;
-    } */
-
     .card .label,
     .card .value {
         width: 100%;
@@ -185,3 +190,4 @@ button:hover {
         margin-bottom: 5px;
     }
 }
+

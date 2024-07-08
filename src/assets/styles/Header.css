@@ -30,3 +30,13 @@
     background-color: #3498db;
     color: #fff;
 }
+
+@media (max-width: 768px) { 
+    .link-container {
+        gap: 0px;
+    }
+    .link-container li a {
+        padding: 10px 5px;
+    }
+
+}
